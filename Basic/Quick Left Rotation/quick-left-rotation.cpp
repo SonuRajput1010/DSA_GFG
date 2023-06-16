@@ -5,29 +5,26 @@ using namespace std;
 // } Driver Code Ends
 class Solution{
 	
-	
-	public:
-	void rever(int arr[], int n){
-	    
-	    int i=0;
-	    int j=n-1;
-	   while(i<=j){
-	       swap(arr[i],arr[j]);
-	       i++;
-	       j--;
-	   }
-	}
-	void leftRotate(int arr[], int d, int n) 
-	{ 
-	  
-	   // Your code goes here
-	   int k = d % n;
-	   rever(arr,k);
-	   rever(arr+k,n-k);
-	   rever(arr,n);
-	   
-	} 
-
+public:
+void reverseArray(int arr[], int n,int s){
+    
+    int e = n-1;
+    while (s<=e)
+    {
+        swap(arr[s],arr[e]);
+        s++;
+        e--;
+    }
+    
+}
+    void leftRotate(int arr[], int d, int n) {
+        
+        d = d%n;
+        // code here
+        reverseArray(arr,d,0);
+        reverseArray(arr,n,d);
+        reverseArray(arr,n,0);
+    }
 };
 
 //{ Driver Code Starts.
