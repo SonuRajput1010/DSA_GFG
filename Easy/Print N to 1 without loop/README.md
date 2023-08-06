@@ -1,4 +1,4 @@
-<h2><a href="https://practice.geeksforgeeks.org/problems/print-n-to-1-without-loop/1?utm_source=youtube&utm_medium=collab_striver_ytdescription&utm_campaign=print-n-to-1-without-loop">Print N to 1 without loop</a></h2><h3>Difficulty Level : Easy</h3><hr><div class="problems_problem_content__Xm_eO"><p><span style="font-size:18px">Print numbers from <strong>N to 1</strong>&nbsp;(space separated) without the help of loops.</span></p>
+<h2><a href="https://practice.geeksforgeeks.org/problems/print-n-to-1-without-loop/1">Print N to 1 without loop</a></h2><h3>Difficulty Level : Easy</h3><hr><div class="problems_problem_content__Xm_eO"><p><span style="font-size:18px">Print numbers from <strong>N to 1</strong>&nbsp;(space separated) without the help of loops.</span></p>
 
 <p><span style="font-size:18px"><strong>Example 1:</strong></span></p>
 
