@@ -12,18 +12,20 @@ class Solution {
   public:
     int binarysearch(int arr[], int n, int k) {
         // code here
-        int s=0;
-        int e = n-1;
-        while(s<=e){
-            int mid = (s+e)/2;
+        int low =0;
+        int high = n-1;
+        
+        while(low<= high){
+            int mid = (low+high)/2;
+            
             if(arr[mid] == k){
                 return mid;
             }
-            else if(arr[mid]>k){
-                e = mid-1;
+            if(arr[mid]<k){
+                low = mid+1;
             }
             else{
-                s = mid+1;
+                high = mid - 1;
             }
         }
         return -1;
