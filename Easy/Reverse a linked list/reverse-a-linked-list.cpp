@@ -36,21 +36,21 @@ class Solution
     struct Node* reverseList(struct Node *head)
     {
         // code here
-         if (head == NULL || head->next == NULL) {
-      return head;
-    }
-    struct Node *prev = NULL;
-    struct Node *curr = head;
-    struct Node *forward = NULL;
-
-    while (curr != NULL){
-		forward = curr-> next;
-		curr -> next = prev;
-		prev = curr;
-		curr = forward;
-	}
-	return prev;
         // return head of reversed list
+        if(head == NULL || head->next == NULL){
+            return head;
+        }
+        Node* prev = NULL;
+        Node* curr = head;
+        Node* forward = NULL;
+        
+        while(curr != NULL){
+            forward = curr->next;
+            curr->next = prev;
+            prev = curr;
+            curr = forward;
+        }
+        return prev;
     }
     
 };
