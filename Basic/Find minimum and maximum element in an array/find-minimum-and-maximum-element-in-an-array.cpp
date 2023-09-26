@@ -25,19 +25,21 @@ int main() {
 
 pair<long long, long long> getMinMax(long long a[], int n) {
     
-    int max=a[0];
-      int min=a[0];
-      for(int i=0;i<n;i++)
-      {
-            if(a[i]>max)
-            {
-                max=a[i];
-            }
-            if(a[i]<min)
-            {
-                  min=a[i];
-            }
+    pair<ll, ll> p;
+    int min=(int)a[0];
+    for(int i=1;i<n;i++){
+        if(a[i]<min){
+            min=(int)a[i];
+        }
     }
-    return make_pair(min,max); 
-    
+    int max=(int)a[0];
+    for(int i=1;i<n;i++){
+        if(a[i]>max){
+            max=(int)a[i];
+        }
+    }
+    p.first = min;
+    p.second = max;
+      
+    return p;
 }
