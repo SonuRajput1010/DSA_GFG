@@ -1,4 +1,4 @@
-<h2><a href="https://practice.geeksforgeeks.org/problems/print-gfg-n-times/1?utm_source=youtube&utm_medium=collab_striver_ytdescription&utm_campaign=print-gfg-n-times">Print GFG n times</a></h2><h3>Difficulty Level : Easy</h3><hr><div class="problems_problem_content__Xm_eO"><p><span style="font-size:18px">Print GFG n times without the loop.</span></p>
+<h2><a href="https://practice.geeksforgeeks.org/problems/print-gfg-n-times/1">Print GFG n times</a></h2><h3>Difficulty Level : Easy</h3><hr><div class="problems_problem_content__Xm_eO"><p><span style="font-size:18px">Print GFG n times without the loop.</span></p>
 
 <p><strong><span style="font-size:18px">Example:</span></strong></p>
 
