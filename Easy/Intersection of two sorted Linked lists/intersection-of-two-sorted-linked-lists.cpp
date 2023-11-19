@@ -35,38 +35,17 @@ Node* inputList(int size)
 
 void printList(Node* n)
 {
+    if(n)
     while(n)
     {
         cout<< n->data << " ";
         n = n->next;
     }
+    else cout<< " ";
 }
 
-Node* findIntersection(Node* head1, Node* head2);
-
-int main()
-{
-	int t;
-	cin>>t;
-	while(t--)
-	{
-	    int n,m;
-	    cin>> n >> m;
-	    
-	    Node* head1 = inputList(n);
-	    Node* head2 = inputList(m);
-	    
-	    Node* result = findIntersection(head1, head2);
-	    
-	    printList(result);
-	    cout<< endl;
-	}
-	return 0;
-}
 
 // } Driver Code Ends
-
-
 /* The structure of the Linked list Node is as follows:
 
 struct Node
@@ -81,26 +60,55 @@ struct Node
 };
 
 */
-Node* findIntersection(Node* head1, Node* head2)
+
+class Solution
 {
-    // Your Code Here
-    Node* dummy = new Node(-1);
-    Node* temp = dummy;
-    
-    while(head1 != NULL && head2 != NULL){
-        if(head1->data == head2->data){
-            Node* same = new Node(head1->data);
-            temp->next = same;
-            temp = same;
-            head1 = head1->next;
-            head2 = head2->next;
-       }
-        else if(head1->data < head2->data){
-            head1 = head1->next;
-        }
-        else{
-            head2 = head2->next;
-        }
+    public:
+    Node* findIntersection(Node* head1, Node* head2)
+    {
+        // code goes here.
+      Node* temp=new Node(-1);
+      Node* sum=temp;
+      while(head1 && head2)
+      {
+          if(head1->data==head2->data)
+          {
+              sum->next=new Node(head2->data);
+              sum=sum->next;
+              head1=head1->next;
+              head2=head2->next;
+          }else if(head1->data>head2->data){
+              head2=head2->next;
+          }else{
+              head1=head1->next;
+          }
+      }
+      return temp->next; 
     }
-    return dummy->next;
+};
+
+
+
+//{ Driver Code Starts.
+int main()
+{
+	int t;
+	cin>>t;
+	while(t--)
+	{
+	    int n,m;
+	    cin>> n >> m;
+	    
+	    Node* head1 = inputList(n);
+	    Node* head2 = inputList(m);
+	    
+	    Solution ob;
+	    Node* result = ob.findIntersection(head1, head2);
+	    
+	    printList(result);
+	    cout<< endl;
+	}
+	return 0;
 }
+
+// } Driver Code Ends
