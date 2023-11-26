@@ -9,21 +9,32 @@ using namespace std;
 
 class Solution{
 public:
-    vector<int> helper(vector<int> v,int N){
-       v.push_back(N);
-       if(N <= 0){
-           return v;
-       }
-       vector<int> ans = helper(v,N-5);
-        ans.push_back(N);
-        return ans;
-    }
-    
     vector<int> pattern(int N){
         // code here
+        if(N == 0) return {0};
+        if(N < 0) return {N}; 
+        vector<int>ans;
+        int temp =  N-5;
+        int flag = 0;
+        ans.push_back(N);
         
-        vector<int> v;
-        return helper(v,N);
+        while(temp != N){
+            if(flag){
+                ans.push_back(temp);
+                temp += 5;
+            }
+            else{
+                if(temp <=0){
+                    flag = 1;
+                }
+                else{
+                    ans.push_back(temp);
+                    temp -= 5;
+                }
+            }
+        }
+        ans.push_back(temp);
+        return ans;
     }
 };
 
