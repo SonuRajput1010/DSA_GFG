@@ -1,4 +1,6 @@
 //{ Driver Code Starts
+//Initial template for C++
+
 #include<bits/stdc++.h>
 
 using namespace std;
@@ -62,7 +64,41 @@ int getCountOfNode(Node *root, int l, int h)
 }
 
 
-bool isDeadEnd(Node *root);
+// } Driver Code Ends
+/*The Node structure is
+struct Node {
+int data;
+Node * right, * left;
+};*/
+
+/*You are required to complete below method */
+class Solution{
+  public:
+    bool helper(Node* root, int l, int r){
+        if(!root->left && !root->right){
+            if(l==r) return true;
+            else return false;
+        }
+        bool ans=false;
+        if(root->left){
+            ans=ans | helper(root->left, l, root->data-1);
+        }
+        if(root->right){
+            ans= ans| helper(root->right, root->data+1, r);
+        }
+        return ans;
+        
+    }
+    bool isDeadEnd(Node *root)
+    {
+        //Your code here
+        return helper(root,1, 1001);
+        
+    }
+};
+
+//{ Driver Code Starts.
+// bool isDeadEnd(Node *root);
 int main()
 {
     int T;
@@ -85,43 +121,11 @@ int main()
 
         }
 
-        
-     cout<<isDeadEnd(root);
+     Solution ob;
+     cout<<ob.isDeadEnd(root);
      cout<<endl;
     }
 }
 
 
 // } Driver Code Ends
-
-
-/*The Node structure is
-struct Node {
-int data;
-Node * right, * left;
-};*/
-
-/*You are required to complete below method */
-void solve(Node* root, int l,int r, bool &flag){
-    if(root == NULL){
-        return;
-    }
-    if(flag == true){
-        return;
-    }
-    if(!root->left && !root->right){
-        if(l==r){
-            flag = true;
-        }
-        return;
-    }
-    solve(root->left,l,root->data-1,flag);
-    solve(root->right,root->data+1,r,flag);
-}
-bool isDeadEnd(Node *root)
-{
-    //Your code here
-    bool flag = false;
-    solve(root,1,INT_MAX,flag);
-    return flag;
-}
