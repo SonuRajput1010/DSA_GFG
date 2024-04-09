@@ -11,20 +11,36 @@ class Solution
     bool isAnagram(string a, string b){
         
         // Your code here
-        if(a.length() == b.length()){
-            sort(a.begin(),a.end());
-            sort(b.begin(),b.end());
-            
-            for(int i=0; i<a.length(); i++){
-                if(a[i] != b[i]){
-                    return false;
-                }
-            }
-            return true;
+        int count[26]={0};
+        
+        int i=0;
+        int len1=0;
+        while(a[i] != '\0'){
+            count[a[i]-'a']++;
+            len1++;
+            i++;
+        }
+        
+        int j=0;
+        int len2=0;
+        while(b[j] != '\0'){
+            count[b[j]-'a']--;
+            len2++;
+            j++;
+        }
+        if(len1!=len2){
+        return 0;
         }
         else{
-            return false;
+            int k=0;
+            while(k<26){
+                if(count[k] != 0){
+                    return 0;
+                }
+                k++;
+            }
         }
+        return 1;
         
     }
 
