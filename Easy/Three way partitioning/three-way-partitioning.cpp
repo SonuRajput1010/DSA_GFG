@@ -12,26 +12,28 @@ class Solution{
 public:
     //Function to partition the array around the range such 
     //that array is divided into three parts.
-    void threeWayPartition(vector<int>& array,int a, int b)
+    void threeWayPartition(vector<int>& arr,int a, int b)
     {
         // code here 
-        int n= array.size();
-        int l=0;
-        int r = n-1;
+        int low = 0;
+        int high = arr.size()-1;
+        int mid = 0;
         
-        for(int i=0; i<=r; i++){
-            
-            if(array[i]<a){
-                
-                swap(array[i],array[l]);
-                l++;
+        while(mid<= high){
+            if(arr[mid]<a){
+                int t=arr[mid];
+                arr[mid] = arr[low];
+                arr[low] = t;
+                low++;
+                mid++;
             }
-            
-            else if(array[i]>b){
-                
-                swap(array[i],array[r]);
-                r--;
-                i--;
+            else if(arr[mid]>=a&&arr[mid]<=b){
+                mid++;
+            }else{
+                int t=arr[mid];
+                arr[mid]=arr[high];
+                arr[high]=t;
+                high--;
             }
         }
     }
